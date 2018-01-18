@@ -258,6 +258,7 @@ var fetchContent = function() {
 
     request
       .get(each_content.url, function optionalCallback(err, httpResponse, body) {
+        //console.log('body', body)
         process_html(body.toString(), each_content.type, each_content.url, function() {
           fetchContent()
         })
