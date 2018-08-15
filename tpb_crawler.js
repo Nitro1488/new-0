@@ -255,10 +255,12 @@ var fetchContent = function() {
   if (each_content.url != undefined) {
     console.log('getting ', each_content.url)
     console.log(colors.magenta('reading file from web:', each_content_fixed))
-
+    console.log(each_content.url)
     request
       .get(each_content.url, function optionalCallback(err, httpResponse, body) {
-        //console.log('body', body)
+        console.log('err', err)
+        console.log('httpResponse', httpResponse)
+        console.log('body', body)
         process_html(body.toString(), each_content.type, each_content.url, function() {
           fetchContent()
         })
